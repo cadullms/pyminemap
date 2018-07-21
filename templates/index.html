@@ -1,0 +1,16 @@
+<!doctype html>
+<head>
+    <script type="text/javascript">
+        setTimeout(function () { 
+          location.reload();
+        }, 1000);
+    </script>
+</head>
+<body>
+<title>Ausspionieren</title>
+{% if positionstext %}
+  <h1>{{ positionstext }}</h1>
+{% else %}
+  <p>Es wurde kein Positionstext übergeben...</p>
+{% endif %}
+</body>
