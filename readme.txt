@@ -8,7 +8,7 @@ Ganz wichtig: Vor dem ersten Start muss flask installiert werden mit:
 
 Dann immer starten mit:
 
-    FLASK_APP=ausspionieren.py flask run --host=0.0.0.0
+    FLASK_APP=pyminemap.py flask run --host=0.0.0.0
 
 Zu flask gibt es die Dokumentation hier: http://flask.pocoo.org
 Und hier das Wichtigste in Kürze: http://flask.pocoo.org/docs/1.0/quickstart/

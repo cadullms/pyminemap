@@ -8,8 +8,10 @@
 </head>
 <body>
 <title>Ausspionieren</title>
-{% if positionstext %}
-  <h1>{{ positionstext }}</h1>
+{% if positionstexte %}
+  {% for positionstext in positionstexte %}
+    <div>{{ positionstext }}</div>
+  {% endfor %}
 {% else %}
   <p>Es wurde kein Positionstext übergeben...</p>
 {% endif %}
