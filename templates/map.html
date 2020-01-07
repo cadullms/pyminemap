@@ -1,0 +1,52 @@
+<!doctype html>
+
+<head>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <script>
+
+    const factor = 2.0;
+    var minX = 0;
+    var minZ = 0;
+
+    function refresh() {
+      $.get("/api/players/positions", function (playerPositions, status) {
+        $("#mapcanvas").empty();
+        $("#mapcanvas").css({position: 'relative'});
+        playerPositions.forEach(playerPosition => {
+          let newElement = $("<div>" + playerPosition.playerId + "</div>");
+          let playerLeft = Math.floor((playerPosition.x - minX) * factor);
+          let playerTop = Math.floor((playerPosition.z - minZ) * factor);
+          newElement.css({top: playerTop, left: playerLeft, position:'absolute'});
+          newElement.appendTo("#mapcanvas");
+        });
+      });
+    };
+
+    function init() {
+      canvasWidth = 256 * factor;
+      canvasHeight = 256 * factor;
+      $("#mapcanvas").css({ width: canvasWidth, height: canvasHeight,  });
+      $.get("/api/worldDimensions", function (worldDimensions, status) {
+        minX = worldDimensions.minX;
+        minZ = worldDimensions.minZ;
+      });
+    }
+
+    $(document).ready(function () {
+      init();
+      setInterval(refresh, 1000);
+    });
+
+  </script>
+</head>
+
+<style>
+  div.mapcanvas {
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+  <title>Python Minecraft Map (pyminemap)</title>
+  <div id="mapcanvas" class="mapcanvas"></div>
+</body>

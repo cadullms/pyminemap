@@ -1,18 +1,8 @@
 <!doctype html>
 <head>
-    <script type="text/javascript">
-        setTimeout(function () { 
-          location.reload();
-        }, 1000);
-    </script>
 </head>
 <body>
-<title>Python Minecraft Map (pyminemap)</title>
-{% if positionstexte %}
-  {% for positionstext in positionstexte %}
-    <div>{{ positionstext }}</div>
-  {% endfor %}
-{% else %}
-  <p>Es wurde kein Positionstext übergeben...</p>
-{% endif %}
+<title>Python Minecraft Info</title>
+<p><a href="/map">as map</a></p>
+<p><a href="/list">as list</a></p>
 </body>
